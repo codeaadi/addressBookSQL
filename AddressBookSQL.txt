@@ -1,0 +1,231 @@
+Microsoft Windows [Version 10.0.22621.1265]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Aditya>mysql -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> #uc1
+mysql> create AddressBookService;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AddressBookService' at line 1
+mysql> create Database AddressBookService;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| addressbookservice |
+| information_schema |
+| mysql              |
+| payroll_service    |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.03 sec)
+
+mysql> #UC2
+mysql> create Table address_book(
+    -> create Table address_book(30) NOT NULL,
+    -> create Table address_book(30) NOT NULL,^C
+mysql> create Table address_book(30) NOT^C
+mysql> create Table address_book(EmpID int Auto_Increment,FirstName VARCHAR(30),LastName VARCHAR(30),address VARCHAR(50),state VARCHAR(30),zip long(6),PhoneNumber Long(10),email VARCHAR(30),PRIMARY KEY(EmpID));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(6),PhoneNumber Long(10),email VARCHAR(30),PRIMARY KEY(EmpID))' at line 1
+mysql> create Table address_book(EmpID int Auto_Increment,FirstName VARCHAR(30),LastName VARCHAR(30),address VARCHAR(50),state VARCHAR(30),zip long(6),PhoneNumber long(10),email VARCHAR(30),PRIMARY KEY(EmpID));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(6),PhoneNumber long(10),email VARCHAR(30),PRIMARY KEY(EmpID))' at line 1
+mysql> create Table address_book(EmpID int Auto_Increment,FirstName VARCHAR(30),LastName VARCHAR(30),address VARCHAR(50),state VARCHAR(30),zip LONG(6),PhoneNumber LONG(10),email VARCHAR(30),PRIMARY KEY(EmpID));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(6),PhoneNumber LONG(10),email VARCHAR(30),PRIMARY KEY(EmpID))' at line 1
+mysql> create Table address_book(EmpID int Auto_Increment,FirstName VARCHAR(30),LastName VARCHAR(30),address VARCHAR(50),state VARCHAR(30),zip LONG(6),PhoneNumber VARCHAR(10),email VARCHAR(30),PRIMARY KEY(EmpID));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(6),PhoneNumber VARCHAR(10),email VARCHAR(30),PRIMARY KEY(EmpID))' at line 1
+mysql> create Table address_book(EmpID int Auto_Increment,FirstName VARCHAR(30),LastName VARCHAR(30),address VARCHAR(50),state VARCHAR(30),zip VARCHAR(6),PhoneNumber VARCHAR(10),email VARCHAR(30),PRIMARY KEY(EmpID));
+ERROR 1046 (3D000): No database selected
+mysql> use addressbookservice;
+Database changed
+mysql> create Table address_book(EmpID int Auto_Increment,FirstName VARCHAR(30),LastName VARCHAR(30),address VARCHAR(50),state VARCHAR(30),zip VARCHAR(6),PhoneNumber VARCHAR(10),email VARCHAR(30),PRIMARY KEY(EmpID));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc addressbookservice;
+ERROR 1146 (42S02): Table 'addressbookservice.addressbookservice' doesn't exist
+mysql> desc addressbookservice;
+ERROR 1146 (42S02): Table 'addressbookservice.addressbookservice' doesn't exist
+mysql> show database
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| addressbookservice |
+| information_schema |
+| mysql              |
+| payroll_service    |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use addressbookservice;
+Database changed
+mysql> create Table address_book(EmpID int Auto_Increment,FirstName VARCHAR(30),LastName VARCHAR(30),address VARCHAR(50),state VARCHAR(30),zip VARCHAR(6),PhoneNumber VARCHAR(10),email VARCHAR(30),PRIMARY KEY(EmpID));
+ERROR 1050 (42S01): Table 'address_book' already exists
+mysql> desc address_book;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| EmpID       | int         | NO   | PRI | NULL    | auto_increment |
+| FirstName   | varchar(30) | YES  |     | NULL    |                |
+| LastName    | varchar(30) | YES  |     | NULL    |                |
+| address     | varchar(50) | YES  |     | NULL    |                |
+| state       | varchar(30) | YES  |     | NULL    |                |
+| zip         | varchar(6)  | YES  |     | NULL    |                |
+| PhoneNumber | varchar(10) | YES  |     | NULL    |                |
+| email       | varchar(30) | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+8 rows in set (0.01 sec)
+
+mysql> #UC3
+mysql> insert into address_book(EmpID,FirstName,LastName,address,state,zip,PhoneNumber,email) values(1,'Aditya','Dubey','Mumbai','MH','421306','38294393','aditya@gmail.com'),(2,'Rahul','Mishra','Thane','MH','588946','55587964',rahul@gmail.com),(3,'Ashu','Pandey','Navi_Mumbai','MH','402135','66666112','Ashu@gmail.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail.com),(3,'Ashu','Pandey','Navi_Mumbai','MH','402135','66666112','Ashu@gmai' at line 1
+mysql> insert into address_book(EmpID,FirstName,LastName,address,state,zip,PhoneNumber,email) values(1,'Aditya','Dubey','Mumbai','MH','421306','38294393','aditya@gmail.com'),(2,'Rahul','Mishra','Thane','MH','588946','55587964',rahul@gmail.com'),(3,'Ashu','Pandey','Navi_Mumbai','MH','402135','66666112','Ashu@gmail.com');
+    '> ;
+    '> insert into address_book(EmpID,FirstName,LastName,address,state,zip,PhoneNumber,email) values(1,'Aditya','Dubey','Mumbai','MH','421306','38294393','aditya@gmail.com'),(2,'Rahul','Mishra','Thane','MH','588946','55587964',rahul@gmail.com'),(3,'Ashu','Pandey','Navi_Mumbai','MH','402135','66666112','Ashu@gmail.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail.com'),(3,'Ashu','Pandey','Navi_Mumbai','MH','402135','66666112','Ashu@gma' at line 1
+mysql> insert into address_book(EmpID,FirstName,LastName,address,state,zip,PhoneNumber,email) values(1,'Aditya','Dubey','Mumbai','MH','421306','38294393','aditya@gmail.com'),(2,'Rahul','Mishra','Thane','MH','588946','55587964','rahul@gmail.com'),(3,'Ashu','Pandey','Navi_Mumbai','MH','402135','66666112','Ashu@gmail.com');
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> desc address_book;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| EmpID       | int         | NO   | PRI | NULL    | auto_increment |
+| FirstName   | varchar(30) | YES  |     | NULL    |                |
+| LastName    | varchar(30) | YES  |     | NULL    |                |
+| address     | varchar(50) | YES  |     | NULL    |                |
+| state       | varchar(30) | YES  |     | NULL    |                |
+| zip         | varchar(6)  | YES  |     | NULL    |                |
+| PhoneNumber | varchar(10) | YES  |     | NULL    |                |
+| email       | varchar(30) | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+8 rows in set (0.01 sec)
+
+mysql> select * from address_book;
++-------+-----------+----------+-------------+-------+--------+-------------+------------------+
+| EmpID | FirstName | LastName | address     | state | zip    | PhoneNumber | email            |
++-------+-----------+----------+-------------+-------+--------+-------------+------------------+
+|     1 | Aditya    | Dubey    | Mumbai      | MH    | 421306 | 38294393    | aditya@gmail.com |
+|     2 | Rahul     | Mishra   | Thane       | MH    | 588946 | 55587964    | rahul@gmail.com  |
+|     3 | Ashu      | Pandey   | Navi_Mumbai | MH    | 402135 | 66666112    | Ashu@gmail.com   |
++-------+-----------+----------+-------------+-------+--------+-------------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> Update adress_book set PhoneNumber ='180000012' where EmpID ='2';
+ERROR 1146 (42S02): Table 'addressbookservice.adress_book' doesn't exist
+mysql> Update address_book set PhoneNumber ='180000012' where EmpID ='2';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> Update address_book set address ='Delhi' where EmpID ='3';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book;
++-------+-----------+----------+---------+-------+--------+-------------+------------------+
+| EmpID | FirstName | LastName | address | state | zip    | PhoneNumber | email            |
++-------+-----------+----------+---------+-------+--------+-------------+------------------+
+|     1 | Aditya    | Dubey    | Mumbai  | MH    | 421306 | 38294393    | aditya@gmail.com |
+|     2 | Rahul     | Mishra   | Thane   | MH    | 588946 | 180000012   | rahul@gmail.com  |
+|     3 | Ashu      | Pandey   | Delhi   | MH    | 402135 | 66666112    | Ashu@gmail.com   |
++-------+-----------+----------+---------+-------+--------+-------------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into address_book(EmpIDmysql> insert into address_book(EmpID,FirstName,LastName,address,state,zip,PhoneNumber,email) values(1,'Aditya','Dubey','Mumbai','MH','421306','38294393','aditya@gmail.com'),(2,'Rahul','Mishra','Thane','MH','588946','55587964','rahul@gmail.com'),(4,'Ankit','Shukla','Noida','UP','402132','66446112','Ankit@gmail.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '> insert into address_book(EmpID,FirstName,LastName,address,state,zip,PhoneNumbe' at line 1
+mysql> insert into address_book(EmpIDmysql> insert into address_book(EmpID,FirstName,LastName,address,state,zip,PhoneNumber,email) values(4,'Ankit','Shukla','Noida','UP','5589488''4786625','ankit@gmail.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '> insert into address_book(EmpID,FirstName,LastName,address,state,zip,PhoneNumbe' at line 1
+mysql> insert into address_book(EmpID,FirstName,LastName,address,state,zip,PhoneNumber,email) values(4,'Ankit','Shukla','Noida','UP','5589488''4786625','ankit@gmail.com');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into address_book(EmpID,FirstName,LastName,address,state,zip,PhoneNumber,email) values(4,'Ankit','Shukla','Noida','UP','5589488''4786625','ankit@gmail.com');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> delete from address_book where EmpID=3;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> UC7
+    -> select *from address_book where address='Thane';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UC7
+select *from address_book where address='Thane'' at line 1
+mysql> select * from address_book where address='Thane';
++-------+-----------+----------+---------+-------+--------+-------------+-----------------+
+| EmpID | FirstName | LastName | address | state | zip    | PhoneNumber | email           |
++-------+-----------+----------+---------+-------+--------+-------------+-----------------+
+|     2 | Rahul     | Mishra   | Thane   | MH    | 588946 | 180000012   | rahul@gmail.com |
++-------+-----------+----------+---------+-------+--------+-------------+-----------------+
+1 row in set (0.00 sec)
+
+mysql> UC8
+    -> Select EmpId from address_book;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UC8
+Select EmpId from address_book' at line 1
+mysql> Select EmpId from address_book;
++-------+
+| EmpId |
++-------+
+|     1 |
+|     2 |
++-------+
+2 rows in set (0.00 sec)
+
+mysql> Select EmpId,firstName from address_book;
++-------+-----------+
+| EmpId | firstName |
++-------+-----------+
+|     1 | Aditya    |
+|     2 | Rahul     |
++-------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> alter table address_book add type varchar(30) after LastName;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Update address_book set type="friend" where EmpID=2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> Update address_book set type="Myself" where EmpID=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book;
++-------+-----------+----------+--------+---------+-------+--------+-------------+------------------+
+| EmpID | FirstName | LastName | type   | address | state | zip    | PhoneNumber | email            |
++-------+-----------+----------+--------+---------+-------+--------+-------------+------------------+
+|     1 | Aditya    | Dubey    | Myself | Mumbai  | MH    | 421306 | 38294393    | aditya@gmail.com |
+|     2 | Rahul     | Mishra   | friend | Thane   | MH    | 588946 | 180000012   | rahul@gmail.com  |
++-------+-----------+----------+--------+---------+-------+--------+-------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> select count(state) from address_book;
++--------------+
+| count(state) |
++--------------+
+|            2 |
++--------------+
+1 row in set (0.01 sec)
+
+mysql>  
